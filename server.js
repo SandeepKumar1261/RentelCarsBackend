@@ -5,12 +5,14 @@ const mongoose = require("mongoose");
 dotenv.config();
 
 const carRoutes = require("./routes/car");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 app.use(cors());
 
 app.use(express.json());
 app.use("/api/cars", carRoutes);
+app.use("/api/users", userRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI, {
